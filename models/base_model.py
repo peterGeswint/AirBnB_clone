@@ -1,7 +1,6 @@
-#!/usr/bin/python3
-"""
+#!/usr/bin/python
 
-"""
+# models/base_model.py
 
 import uuid
 from datetime import datetime
@@ -35,4 +34,3 @@ class BaseModel:
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         return dictionary
-

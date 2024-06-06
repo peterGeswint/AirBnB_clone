@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-
-
 import json
 import os
+from models.base_model import BaseModel
 
 class FileStorage:
     __file_path = "file.json"
@@ -31,6 +30,7 @@ class FileStorage:
                 obj_dict = json.load(file)
                 for key, value in obj_dict.items():
                     class_name = value['__class__']
-                    obj = globals()[class_name](**value)
+                    cls = globals().get(class_name, BaseModel)
+                    obj = cls(**value)
                     self.__objects[key] = obj
 
